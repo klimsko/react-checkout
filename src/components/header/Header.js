@@ -11,10 +11,10 @@ const Header = (props) => {
         <div className="hamburger"><span>Menu</span></div>
         <div className="menu">
           <ul>
-              <li><a href="#">Women</a></li>
-              <li><a href="#">Men</a></li>
-              <li><a href="#">Accessories</a></li>
-              <li><a href="#">Shoes</a></li>
+              <li><a href="">Women</a></li>
+              <li><a href="">Men</a></li>
+              <li><a href="">Accessories</a></li>
+              <li><a href="">Shoes</a></li>
           </ul>
         </div>
         <div className="basket">

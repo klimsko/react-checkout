@@ -22,6 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header basket={this.state.basket} />
+        <hr />
         <Main updateBasket={this.updateBasket.bind(this)} />
       </div>
     );

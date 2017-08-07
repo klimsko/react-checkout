@@ -123,7 +123,7 @@ label {
   font-weight: 700;
   color: #000; }
 
-input {
+input, select {
   background-color: #f7f7f7;
   font-size: 16px;
   width: 100%;

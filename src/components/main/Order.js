@@ -17,7 +17,7 @@ export default class Order extends Component {
     this.totalQty = this.state.product1qty + this.state.product2qty;
 	}
 
-	plusProductQty(elem, qty) {
+	plusProductQty(elem) {
 		let subtotal = 0;
 		let total = 0;
 		let product1qty = this.state.product1qty;
@@ -47,7 +47,7 @@ export default class Order extends Component {
 		}
 	}
 
-	minusProductQty(elem, qty) {
+	minusProductQty(elem) {
 		let subtotal = 0;
 		let total = 0;
 		let product1qty = this.state.product1qty;
@@ -113,13 +113,13 @@ export default class Order extends Component {
 	          <img 
 	          	src={require("./../img/icon-minus.svg")} 
 	          	className="minus" alt="minus" 
-	          	onClick={this.minusProductQty.bind(this, "product1qty", this.state.product1qty)}
+	          	onClick={this.minusProductQty.bind(this, "product1qty")}
 	          	/> 
 	          <span className="quantity">{this.state.product1qty}</span> 
 	          <img 
 	          	src={require("./../img/icon-plus.svg")} 
 	          	className="plus" alt="plus" 
-	          	onClick={this.plusProductQty.bind(this, "product1qty", this.state.product1qty)}
+	          	onClick={this.plusProductQty.bind(this, "product1qty")}
 	          	/>
 	        </div>
 	        <span className="product-price"> Price </span>  <span className="product-price-amount"> {this.state.product1price}$ </span>
@@ -133,13 +133,13 @@ export default class Order extends Component {
 	            <img 
 	            src={require("./../img/icon-minus.svg")} 
 	            className="minus" alt="minus" 
-	            onClick={this.minusProductQty.bind(this, "product2qty", this.state.product2qty)}
+	            onClick={this.minusProductQty.bind(this, "product2qty")}
 	            /> 
 	            <span className="quantity">{this.state.product2qty}</span> 
 	            <img 
 	            src={require("./../img/icon-plus.svg")} 
 	            className="plus" alt="plus" 
-	            onClick={this.plusProductQty.bind(this, "product2qty", this.state.product2qty)}
+	            onClick={this.plusProductQty.bind(this, "product2qty")}
 	            />
 	        </div>
 	        <span className="product-price"> Price </span>  <span className="product-price-amount"> {this.state.product2price}$ </span>
