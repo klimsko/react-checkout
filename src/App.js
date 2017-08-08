@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import Header from './components/header/Header'
 import Main from './components/main/Main'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export default class App extends Component {
+  constructor() {
+    super();
 
     this.state = {
-      basket: 0
+      basket: 0,
+      hamburgerIsOpen: false
     }
   }
 
@@ -18,15 +19,20 @@ class App extends Component {
     })
   }
 
+  openHamburgerMenu() {
+    this.setState({ hamburgerIsOpen: !this.state.hamburgerIsOpen })
+  }
+
   render() {
     return (
       <div className="App">
-        <Header basket={this.state.basket} />
+        <Header 
+          basket={this.state.basket} 
+          openHamburgerMenu={this.openHamburgerMenu.bind(this)} 
+          isOpen={this.state.hamburgerIsOpen} />
         <hr />
         <Main updateBasket={this.updateBasket.bind(this)} />
       </div>
     );
   }
 }
-
-export default App;

@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export default class Form extends Component {
-	constructor() {
-		super();
+	static propTypes = {
+		getModalInfo: PropTypes.func.isRequired
+	}
+
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			firstName: '',
@@ -52,14 +57,20 @@ export default class Form extends Component {
 			this.setState({ btnActive: true })
 		}
 		else {this.setState({ btnActive: false })}
-			
+	}
+
+	submitForm(event) {
+		event.preventDefault();
+
+		const name = this.state.firstName;
+		this.props.getModalInfo(name);
 	}
 
 	render() {
 		return (
 			<div className="contact-details-container">
 	      <p className="secondary-title">DELIVERY ADDRESS</p>
-	      <form action="#" name="checkout" id="checkout">
+	      <form onSubmit={this.submitForm.bind(this)} name="checkout" id="checkout">
 	        <label htmlFor="firstName">FIRST NAME <i className="recuired"></i></label> 
 	        <input 
 		        type="text" name="firstName" id="firstName" 
@@ -100,7 +111,8 @@ export default class Form extends Component {
 	        </label>
 
 	        <label htmlFor="phone">PHONE</label>
-	        <input type="text" 
+	        <input 
+	        	type="text" name="phone" id="phone"
 	        	value={this.state.phone}
 	        	onChange={this.onInputChange.bind(this)} 
 	        />
@@ -119,7 +131,8 @@ export default class Form extends Component {
 	        </label>
 
 	        <label htmlFor="address-cont">ADDRESS CONT.</label>
-	        <input type="text" 
+	        <input 
+	        	type="text" name="addressCont" id="addressCont"
 		        value={this.state.addressCont} 
 		        onChange={this.onInputChange.bind(this)} 
 	        />

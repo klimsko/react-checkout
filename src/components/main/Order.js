@@ -1,11 +1,16 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 export default class Order extends Component {
+	static propTypes = {
+		getTotalQty: PropTypes.func.isRequired
+	}
+
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			product1qty: 0,
+			product1qty: 1,
       product2qty: 1,
       product1price: 100,
       product2price: 300,
