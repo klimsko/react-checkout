@@ -23,10 +23,13 @@ export default class Order extends Component {
 	}
 
 	plusProductQty(elem) {
-		let subtotal = 0;
-		let total = 0;
-		let product1qty = this.state.product1qty;
-		let product2qty = this.state.product2qty;
+		let {	
+				subtotal,
+				total,
+				product1qty, 
+				product2qty
+		} = this.state;
+
 		this.totalQty = product1qty + product2qty;
 
 		if (elem === 'product1qty'){
@@ -37,7 +40,8 @@ export default class Order extends Component {
 			product2qty += 1;
 			subtotal = product1qty * this.state.product1price + product2qty * this.state.product2price;
 			this.totalQty += 1;
-		}
+		} 
+		
 		total = subtotal + this.state.shipping;
 
 		this.setState({ 
@@ -53,10 +57,13 @@ export default class Order extends Component {
 	}
 
 	minusProductQty(elem) {
-		let subtotal = 0;
-		let total = 0;
-		let product1qty = this.state.product1qty;
-		let product2qty = this.state.product2qty;
+		let {	
+				subtotal,
+				total,
+				product1qty, 
+				product2qty
+		} = this.state;
+
 		this.totalQty = product1qty + product2qty;
 
 		if (elem === 'product1qty' && this.state[elem] > 0){
@@ -68,6 +75,7 @@ export default class Order extends Component {
 			subtotal = product1qty * this.state.product1price + product2qty * this.state.product2price;
 			this.totalQty -=1;
 		}
+		
 		total = subtotal + this.state.shipping;
 		
 		this.setState({ 
